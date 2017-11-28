@@ -132,7 +132,13 @@ public class Triangle {
         Matrix.rotateM(mMMatrix , 0 , mXAngle , 1 , 0 , 0);
         GLES20.glUniformMatrix4fv(muMVPMatrixHandle , 1 , false , Triangle.getFinalMatrix(mMMatrix) , 0);
         //把顶点位置传送进渲染管线
-        GLES20.glVertexAttribPointer(maPositionHandle , 3 , GLES20.GL_FLOAT , false , 3 * 4 , mVertexBuffer);
+        GLES20.glVertexAttribPointer(maPositionHandle ,//顶点位置属性引用
+                                     3 ,//每顶点一组的数据个数(X Y Z 坐标 所以是3)
+                                     GLES20.GL_FLOAT ,//数据类型
+                                     false ,//是否规格化
+                                     3 * 4 ,//每组数据的尺寸,这里每组3个浮点数据,每个浮点4byte,所以是3*4
+                                     mVertexBuffer//存放了数据的缓冲区
+        );
         //把颜色数据传送进渲染管线
         GLES20.glVertexAttribPointer(maColorHandle , 4 , GLES20.GL_FLOAT , false , 4 * 4 , mColorBuffer);
         //启用顶点位置数据和颜色数据
