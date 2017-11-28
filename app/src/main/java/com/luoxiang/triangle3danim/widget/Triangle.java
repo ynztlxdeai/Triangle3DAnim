@@ -122,10 +122,11 @@ public class Triangle {
      * 绘制自己
      */
     public void drawSelf(){
+        //给着色器ID指定着色器程序
         GLES20.glUseProgram(mProgram);
         //初始化变换矩阵
         Matrix.setRotateM(mMMatrix , 0 , 0 , 0 , 1 , 0);
-        //设置沿X轴正方向位移
+        //设置沿z轴正方向位移
         Matrix.translateM(mMMatrix , 0 , 0 , 0 , 1);
         //设置绕X轴旋转
         Matrix.rotateM(mMMatrix , 0 , mXAngle , 1 , 0 , 0);
@@ -138,7 +139,7 @@ public class Triangle {
         GLES20.glEnableVertexAttribArray(maPositionHandle);
         GLES20.glEnableVertexAttribArray(maColorHandle);
 
-        //开始绘制
+        //开始绘制,绘制三角形
         GLES20.glDrawArrays(GLES20.GL_TRIANGLES , 0 , mVCount);
 
     }
