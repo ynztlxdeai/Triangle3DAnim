@@ -1,7 +1,7 @@
 uniform mat4 uMVPMatrix; //总变换矩阵
 attribute vec3 aPosition;  //顶点位置
 attribute vec4 aColor;    //顶点颜色
-varying  vec4 vColor;  //用于传递给片元着色器的变量
+varying  vec4 vColor;  //用于传递给片元着色器的易变量
 
 void main()
 {
