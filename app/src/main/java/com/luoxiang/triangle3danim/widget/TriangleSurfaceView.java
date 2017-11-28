@@ -26,6 +26,7 @@ public class TriangleSurfaceView
         extends GLSurfaceView {
     //三角形一次旋转的角度
     final float ANGLE_SPAN = 0.375f;
+    //自定义线程类
     RotateThread mRotateThread;
     //渲染器引用
     SceneRenderer mSceneRenderer;
@@ -44,10 +45,13 @@ public class TriangleSurfaceView
      * 初始化
      */
     private void init() {
+        //设置使用OpenGL ES 2.0
         setEGLContextClientVersion(2);
+        //渲染器初始化
         mSceneRenderer = new SceneRenderer();
         //设置渲染器
         setRenderer(mSceneRenderer);
+        //模式是连续不断地
         setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
 
