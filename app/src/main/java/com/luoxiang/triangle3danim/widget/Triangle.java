@@ -65,11 +65,17 @@ public class Triangle {
      * @param triangleSurfaceView 显示用
      */
     private void initShader(TriangleSurfaceView triangleSurfaceView) {
+        //加载顶点着色器
         mVertexShader = ShaderUtil.loadFromAeertsFile("vertex.sh" , triangleSurfaceView.getResources());
+        //加载片元着色器
         mFragmentShader = ShaderUtil.loadFromAeertsFile("frag.sh" , triangleSurfaceView.getResources());
+        //创建程序
         mProgram = ShaderUtil.createProgram(mVertexShader , mFragmentShader);
+        //顶点位置属性引用
         maPositionHandle = GLES20.glGetAttribLocation(mProgram , "aPosition");
+        //顶点颜色属性引用
         maColorHandle = GLES20.glGetAttribLocation(mProgram , "aColor");
+        //总变换矩阵引用
         muMVPMatrixHandle = GLES20.glGetUniformLocation(mProgram , "uMVPMatrix");
     }
 
