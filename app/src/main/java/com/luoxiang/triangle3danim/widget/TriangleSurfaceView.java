@@ -82,7 +82,11 @@ public class TriangleSurfaceView
             //设置透视投影
             Matrix.frustumM(Triangle.mProjMatrix , 0 , -ratio , ratio , -1 , 1 , 1 , 10);
             //设置摄像机
-            Matrix.setLookAtM(Triangle.mVMatrix , 0 , 0 , 0 , 3 , 0.0f , 0.0f , 0.0f , 0.0f , 1.0f , 0.0f );
+            Matrix.setLookAtM(Triangle.mVMatrix ,//存储生成矩阵元素的float[]类型数组
+                              0 ,//填充起始偏移量
+                              0 , 0 , 3 , //摄像机位置X Y Z
+                              0.0f ,  0.0f , 0.0f , //观察目标点X Y Z
+                              0.0f ,  1.0f , 0.0f );//up向量在X Y Z 的分量
         }
 
         @Override
